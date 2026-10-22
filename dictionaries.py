@@ -1,4 +1,4 @@
-best_buy_items = [
+better_local_corner_store_than_hank_items = [
     {
         "name": "Samsung 55\" 4K UHD TV",
         "price": 429.99,
@@ -21,4 +21,4 @@ best_buy_items = [
 
 for index, item in enumerate(best_buy_items):
     print(index)
-
+show_ite
