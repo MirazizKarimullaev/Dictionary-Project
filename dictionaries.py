@@ -18,5 +18,7 @@ best_buy_items = [
         "description": "Latest Apple smartphone with A17 chip and advanced camera system."
     }
 ]
-for item in best_buy_items:
-    print(item["name"])
+
+for index, item in enumerate(best_buy_items):
+    print(index)
+
