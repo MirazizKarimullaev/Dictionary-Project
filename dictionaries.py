@@ -1,4 +1,5 @@
-print("hi i havew good tings, plz buy i try to make look pretty but I lazy")
+print("*you enter Miraziz's shop that is better than hank's shop*")
+print("cashier/owner: hi i have good tings, plz buy I try to make look pretty but I lazy")
 better_local_corner_store_than_hank_items = [
     {
         "name": "anti-matter/1 gram",
@@ -89,9 +90,30 @@ better_local_corner_store_than_hank_items = [
         "price": 6.70,
         "department": "Thing",
         "description": "Hey, it's me Verity, your personal helper friend. Ask me anything, I know everything/ Hey it's me, it's Verity, ask me anything. I know about a million things, ill do anything. (blah blah blah) What is the capital ofd framce? oui ui ui, it is paris, merci. What does the cow say? Oh moo moo moo, I speak that too, all day"
+    },
+    {
+        "name": "Hank's shop",
+        "price": .67,
+        "department": "Thing",
+        "description": "you buy hank shop :O, do yes, is very bad shop, too expensive"
+    },
+    {
+        "name": "everyting fom Hank's shop",
+        "price": .01,
+        "department": "Thing",
+        "description": "you buy ting hank shop :O fom me 0_0, do yes, is very bad shop, too expensive tis cheap"
+    },
+    {
+        "name": "\"Hank\"",
+        "price": -1000.00,
+        "department": "Pet",
+        "description": "you buy hank"
     }
     
 ]
-
-for index, item in enumerate(better_local_corner_store_than_hank_items):
-    print(item["name"])
+your_cart = []
+while True:
+    action = input("what would you like to do\n1. see stock\n2. leave")
+    
+    for index, item in enumerate(better_local_corner_store_than_hank_items):
+        print(index+1 , ":" , item["name"])
