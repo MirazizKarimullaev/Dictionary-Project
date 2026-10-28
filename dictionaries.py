@@ -1,6 +1,7 @@
-print("*you enter Miraziz's shop that is better than hank's shop*")
+import time
+print("*you enter Miraziz's shop that is better than hank and terren shop*")
 print("cashier/owner: hi i have good tings, plz buy I try to make look pretty but I lazy")
-better_local_corner_store_than_hank_items = [
+better_local_corner_store_than_hank_and_terren_items = [
     {
         "name": "anti-matter/1 gram",
         "price": 7.99,
@@ -107,13 +108,51 @@ better_local_corner_store_than_hank_items = [
         "name": "\"Hank\"",
         "price": -1000.00,
         "department": "Pet",
-        "description": "you buy hank"
+        "description": "you buy hank please?"
+    },
+    {
+        "name": "everyting fom Terren's shop",
+        "price": 0,
+        "department": "Thing",
+        "description": "you buy ting Terren shop :O fom me 0_0, do yes, is very bad shop, too expensive tis cheap"
+    },
+    {
+        "name": "\"Terren\"",
+        "price": -1000.00,
+        "department": "Pet",
+        "description": "you buy Terren please?"
+    },
+    {
+        "name": "msic ting",
+        "price": 1.99,
+        "department": "Thing",
+        "description": "music yes buy?"
+    },
+    {
+        "name": "everything class/2 weeks",
+        "price": -10000,
+        "department": "Thing",
+        "description": "class"
     }
     
 ]
 your_cart = []
 while True:
-    action = input("what would you like to do\n1. see stock\n2. leave")
-    
-    for index, item in enumerate(better_local_corner_store_than_hank_items):
-        print(index+1 , ":" , item["name"])
+    print(" ")
+    action = int(input("what would you like to do\n1. see stock\n2. leave"))
+    if action == 2:
+        print("*you sadly leave my shop*")
+        break
+    elif action == 1:
+        print("0: leave")
+        time.sleep(.1)
+        for index, item in enumerate(better_local_corner_store_than_hank_and_terren_items):
+            time.sleep(.1)
+            print(index+1 , ":" , item["name"])
+        view = int(input("what do you want to see? "))
+        print(" ")
+        print(better_local_corner_store_than_hank_and_terren_items[view-1]["name"])
+        print(better_local_corner_store_than_hank_and_terren_items[view-1]["price"])
+        print(better_local_corner_store_than_hank_and_terren_items[view-1]["department"])
+        print(better_local_corner_store_than_hank_and_terren_items[view-1]["description"])
+        input(" \n so what would you like to do?\n 1. put in cart\2. put back")
