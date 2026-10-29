@@ -1,7 +1,7 @@
 import time
 print("*you enter Miraziz's shop that is better than hank and terren shop*")
 print("cashier/owner: hi i have good tings, plz buy I try to make look pretty but I lazy")
-better_local_corner_store_than_hank_and_terren_items = [
+items = [
     {
         "name": "anti-matter/1 gram",
         "price": 7.99,
@@ -139,20 +139,24 @@ better_local_corner_store_than_hank_and_terren_items = [
 your_cart = []
 while True:
     print(" ")
-    action = int(input("what would you like to do\n1. see stock\n2. leave"))
+    action = int(input("what would you like to do\n1. see stock\n2. leave\n3. see cart"))
     if action == 2:
         print("*you sadly leave my shop*")
         break
     elif action == 1:
         print("0: leave")
-        time.sleep(.1)
-        for index, item in enumerate(better_local_corner_store_than_hank_and_terren_items):
-            time.sleep(.1)
+        time.sleep(.01)
+        for index, item in enumerate(items):
+            time.sleep(.01)
             print(index+1 , ":" , item["name"])
         view = int(input("what do you want to see? "))
         print(" ")
-        print(better_local_corner_store_than_hank_and_terren_items[view-1]["name"])
-        print(better_local_corner_store_than_hank_and_terren_items[view-1]["price"])
-        print(better_local_corner_store_than_hank_and_terren_items[view-1]["department"])
-        print(better_local_corner_store_than_hank_and_terren_items[view-1]["description"])
-        input(" \n so what would you like to do?\n 1. put in cart\2. put back")
+        print(f"name: {items[view-1]["name"]}")
+        print(f"price: ${items[view-1]["price"]}")
+        print(f"department/location: {items[view-1]["department"]}")
+        print(items[view-1]["description"])
+        buy = int(input("\nso what would you like to do?\n1. put in cart\n2. put back"))
+        if buy == 1:
+            your_cart.append(items[view-1])
+            print(your_cart)
+    print(your_cart)
