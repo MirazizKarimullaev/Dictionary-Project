@@ -141,15 +141,20 @@ while True:
     print(" ")
     action = int(input("what would you like to do\n1. see stock\n2. leave\n3. see cart"))
     if action == 2:
-        print("*you sadly leave my shop*")
+        print("*you sadly leave my shop, you should have bought more*")
         break
+    elif action == 3:
+        for i in your_cart:
+            print(f"name: {items[i]["name"]}, price: ${items[i]["price"]}")
     elif action == 1:
-        print("0: leave")
+        print("0: stop veiwing")
         time.sleep(.01)
         for index, item in enumerate(items):
             time.sleep(.01)
             print(index+1 , ":" , item["name"])
         view = int(input("what do you want to see? "))
+        if view != 0:
+            continue
         print(" ")
         print(f"name: {items[view-1]["name"]}")
         print(f"price: ${items[view-1]["price"]}")
@@ -159,4 +164,3 @@ while True:
         if buy == 1:
             your_cart.append(items[view-1])
             print(your_cart)
-    print(your_cart)
