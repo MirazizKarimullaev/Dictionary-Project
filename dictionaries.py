@@ -137,30 +137,48 @@ items = [
     
 ]
 your_cart = []
+total = 0
 while True:
     print(" ")
-    action = int(input("what would you like to do\n1. see stock\n2. leave\n3. see cart"))
+    action = int(input("what would you like to do\n1. see stock\n2. leave\n3. see cart\n4. remove something from cart\n5. check out\n"))
     if action == 2:
         print("*you sadly leave my shop, you should have bought more*")
         break
     elif action == 3:
-        for i in your_cart:
-            print(f"name: {items[i]["name"]}, price: ${items[i]["price"]}")
+        if len(your_cart) > 0:
+            for i in your_cart:
+                print(f"name: {items[i]["name"]}, price: ${items[i]["price"]}")
+            print(total)
+        else:
+            print("you got nothing in your cart :(")
+    elif action == 4:
+        h
     elif action == 1:
-        print("0: stop veiwing")
+        print("0: stop viewing")
         time.sleep(.01)
         for index, item in enumerate(items):
             time.sleep(.01)
             print(index+1 , ":" , item["name"])
         view = int(input("what do you want to see? "))
-        if view != 0:
+        if view == 0:
             continue
-        print(" ")
-        print(f"name: {items[view-1]["name"]}")
-        print(f"price: ${items[view-1]["price"]}")
-        print(f"department/location: {items[view-1]["department"]}")
-        print(items[view-1]["description"])
+        else:
+            print(" ")
+            print(f"name: {items[view-1]["name"]}")
+            print(f"price: ${items[view-1]["price"]}")
+            print(f"department/location: {items[view-1]["department"]}")
+            print(items[view-1]["description"])
         buy = int(input("\nso what would you like to do?\n1. put in cart\n2. put back"))
         if buy == 1:
             your_cart.append(items[view-1])
-            print(your_cart)
+            total = total + items[i]["price"]
+            for i in range(len(your_cart)):
+                x = i+1
+                print(f"{x}: name: {items[i]["name"]}, price: ${items[i]["price"]}")
+            print(f"Your total is: {total}")
+            
+
+# x = [1, 2, 3]
+# len(x) -> Takes how every-many elements in the list and outputs them
+# for i in range(22 or len(x)), 1, 22
+# blablblablabl
