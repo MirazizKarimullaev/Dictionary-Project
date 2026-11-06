@@ -146,13 +146,28 @@ while True:
         break
     elif action == 3:
         if len(your_cart) > 0:
-            for i in your_cart:
-                print(f"name: {items[i]["name"]}, price: ${items[i]["price"]}")
-            print(total)
+            print("0: stop viewing")
+            for i in range(len(your_cart)):
+                y = i+1
+                print(f"{y}: name: {your_cart[i]["name"]}, price: ${your_cart[i]["price"]}")
+            print(f"your total is ${total}")
         else:
             print("you got nothing in your cart :(")
     elif action == 4:
-        h
+        if len(your_cart) > 0:
+            print("0: stop viewing")
+            for i in range(len(your_cart)):
+                z = i+1
+                print(f"{z}: name: {your_cart[i]["name"]}, price: ${your_cart[i]["price"]}")
+            print(f"your total is ${total}")
+            remove = int(input("\nwhat would you like to remove?\n"))
+            if remove == 0:
+                continue
+            elif remove > 0:
+                total = total - items[remove-1]["price"]
+                your_cart.pop(remove - 1)
+        else:
+            print("you got nothing in your cart :(")
     elif action == 1:
         print("0: stop viewing")
         time.sleep(.01)
@@ -168,17 +183,33 @@ while True:
             print(f"price: ${items[view-1]["price"]}")
             print(f"department/location: {items[view-1]["department"]}")
             print(items[view-1]["description"])
-        buy = int(input("\nso what would you like to do?\n1. put in cart\n2. put back"))
+        buy = int(input("\nso what would you like to do?\n1. put in cart\n2. put back\n"))
         if buy == 1:
             your_cart.append(items[view-1])
-            total = total + items[i]["price"]
+            total = total + items[view-1]["price"]
             for i in range(len(your_cart)):
                 x = i+1
-                print(f"{x}: name: {items[i]["name"]}, price: ${items[i]["price"]}")
+                print(f"{x}: name: {your_cart[i]["name"]}, price: ${your_cart[i]["price"]}")
             print(f"Your total is: {total}")
+    elif action == 5:
+        if len(your_cart) == 0:
+            print("you got nothing in your cart :(")
+        elif len(your_cart) > 0:
+            for i in range(len(your_cart)):
+                    print(f"name: {your_cart[i]["name"]}, price: ${your_cart[i]["price"]}")
+            print(f"Your total is: {total}")
+            finish = int(input("\n are you done?\n0: I'm not done\n1: I'm done\n"))
+            if finish == 0:
+                continue
+        elif finish == 1:
+            print(f"ok you pay ${total}\n*you pay and leave, wishing you bought more*")
+            break
+
+
             
 
 # x = [1, 2, 3]
 # len(x) -> Takes how every-many elements in the list and outputs them
 # for i in range(22 or len(x)), 1, 22
 # blablblablabl
+# FIX NUMBER $ AND % FOR ACTIOMN
