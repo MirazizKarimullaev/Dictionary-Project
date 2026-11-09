@@ -164,7 +164,7 @@ while True:
             if remove == 0:
                 continue
             elif remove > 0:
-                total = total - items[remove-1]["price"]
+                total = round(total - (your_cart[remove-1]["price"]),2)
                 your_cart.pop(remove - 1)
         else:
             print("you got nothing in your cart :(")
@@ -186,7 +186,7 @@ while True:
         buy = int(input("\nso what would you like to do?\n1. put in cart\n2. put back\n"))
         if buy == 1:
             your_cart.append(items[view-1])
-            total = total + items[view-1]["price"]
+            total = round(total + items[view-1]["price"],2)
             for i in range(len(your_cart)):
                 x = i+1
                 print(f"{x}: name: {your_cart[i]["name"]}, price: ${your_cart[i]["price"]}")
@@ -201,10 +201,16 @@ while True:
             finish = int(input("\n are you done?\n0: I'm not done\n1: I'm done\n"))
             if finish == 0:
                 continue
-        elif finish == 1:
-            print(f"ok you pay ${total}\n*you pay and leave, wishing you bought more*")
-            break
-
+            elif finish == 1:
+                if total > 0:
+                    print(f"ok you pay ${total}\n*you pay and leave, wishing you bought more*")
+                    break
+                elif total < 0:
+                    print(f"ok i pay you ${total}\n*i pay and you leave, wishing you bought more*")
+                    break
+                elif total == 0:
+                    print(f"you leave with your stuff, for free!")
+                    break
 
             
 
